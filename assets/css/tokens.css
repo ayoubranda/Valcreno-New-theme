@@ -1,0 +1,354 @@
+/* =====================================================================
+   VALCRENO — Colors & Type
+   Luxury watches and women's handbags. Shopify storefront.
+   Aesthetic: editorial luxury — ivory paper, true black ink, champagne gold,
+   chrome silver. High-contrast didone serif headlines + neutral grotesk body.
+   ===================================================================== */
+
+/* ---------- 1. Fonts ---------- */
+
+/* Helvetica Neue — provided by client (body, UI, navigation, labels) */
+@font-face {
+  font-family: "Helvetica Neue Vc";
+  src: url("../fonts/HelveticaNeueLight.ttf") format("truetype");
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Helvetica Neue Vc";
+  src: url("../fonts/HelveticaNeue-Roman.otf") format("opentype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Helvetica Neue Vc";
+  src: url("../fonts/HelveticaNeueItalic.ttf") format("truetype");
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "Helvetica Neue Vc";
+  src: url("../fonts/HelveticaNeueMedium.ttf") format("truetype");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Helvetica Neue Vc";
+  src: url("../fonts/HelveticaNeueBold.ttf") format("truetype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Helvetica Neue Vc";
+  src: url("../fonts/HelveticaNeue-Black.otf") format("opentype");
+  font-weight: 900; font-style: normal; font-display: swap;
+}
+
+/* Helvetica Neue Condensed — used sparsely for ALL-CAPS labels, eyebrow */
+@font-face {
+  font-family: "Helvetica Neue Cond Vc";
+  src: url("../fonts/HelveticaNeue-Condensed.otf") format("opentype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+
+/* Helvetica Neue Extended — for tracked-out micro labels */
+@font-face {
+  font-family: "Helvetica Neue Ext Vc";
+  src: url("../fonts/HelveticaNeue-Extended.otf") format("opentype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+
+/* Inter — secondary for tabular UI bits (prices, sizes, SKU) */
+@font-face {
+  font-family: "Inter Vc";
+  src: url("../fonts/InterVariable.ttf") format("truetype-variations");
+  font-weight: 100 900; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Inter Vc";
+  src: url("../fonts/InterVariable-Italic.ttf") format("truetype-variations");
+  font-weight: 100 900; font-style: italic; font-display: swap;
+}
+
+/* Display serif — Cormorant Garamond, now self-hosted via the variable
+   font files the client uploaded. This is the closest free didone match to
+   the custom Valcreno wordmark serif; the wordmark itself stays as a PNG so
+   the swash A / tilde-R remain pixel-accurate.
+   Bodoni Moda is kept as a CDN fallback in the @import below for any future
+   spread headlines that want a wider, more dramatic cut. */
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("../fonts/CormorantGaramond-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 300 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("../fonts/CormorantGaramond-Italic-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 300 700; font-style: italic; font-display: swap;
+}
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600;6..96,700;6..96,800&display=swap");
+
+/* ---------- 2. Color tokens ---------- */
+
+:root {
+  /* --- Core palette (neutrals + brand accents) --- */
+  --vc-ink:        #0A0A0A;   /* true ink — primary text, logo, primary buttons */
+  --vc-ink-soft:   #1C1C1C;   /* slightly lifted black, used on photography */
+  --vc-graphite:   #2A2A2A;   /* dark surface — drawers, modals on hover */
+  --vc-charcoal:   #4A4744;   /* secondary body text on cream */
+  --vc-stone:      #8A8580;   /* tertiary text, captions, metadata */
+  --vc-mist:       #C9C4BE;   /* hairline dividers, disabled states */
+  --vc-pearl:      #E8E3DA;   /* card hover, soft surfaces */
+  --vc-bone:       #F2EDE3;   /* secondary surface, alt rows */
+  --vc-cream:      #F7F2E8;   /* PRIMARY PAGE BACKGROUND — warm ivory */
+  --vc-paper:      #FBF8F1;   /* lightest surface, cards on cream */
+  --vc-white:      #FFFFFF;   /* pure white — product photography only */
+
+  /* --- Brand accents --- */
+  --vc-gold:       #B89567;   /* primary gold — used sparingly; CTAs, sale tags */
+  --vc-gold-deep:  #8C6F4A;   /* hover state for gold */
+  --vc-gold-light: #D9BC8B;   /* gold tint for backgrounds, badges */
+  --vc-champagne:  #E8D6B3;   /* lightest gold wash */
+  --vc-silver:     #B8B5B0;   /* silver / chrome accent (monogram, watches) */
+  --vc-silver-dk:  #6E6B66;
+
+  /* --- Semantic --- */
+  --vc-sale:       #8C2A2A;   /* deep wine — sale price, never bright red */
+  --vc-success:    #4A6B4A;   /* muted sage — order confirmed */
+  --vc-warn:       #B8842A;   /* warm amber — low stock */
+  --vc-error:      #8C2A2A;
+  --vc-info:       #4A5B6B;
+
+  /* --- Foreground / surface semantics (use these in components) --- */
+  --fg-1: var(--vc-ink);          /* primary text */
+  --fg-2: var(--vc-charcoal);     /* body text */
+  --fg-3: var(--vc-stone);        /* meta, captions, helper */
+  --fg-inv: var(--vc-cream);      /* text on dark surfaces */
+  --fg-accent: var(--vc-gold);
+
+  --bg-page:    var(--vc-cream);
+  --bg-surface: var(--vc-paper);
+  --bg-alt:     var(--vc-bone);
+  --bg-inv:     var(--vc-ink);
+  --bg-product: var(--vc-white); /* product imagery against pure white */
+
+  --border-hair:  rgba(10,10,10,0.10);  /* hairline dividers */
+  --border-soft:  rgba(10,10,10,0.18);
+  --border-strong: var(--vc-ink);
+
+  /* --- Spacing scale (4px base) --- */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  48px;
+  --space-8:  64px;
+  --space-9:  96px;
+  --space-10: 128px;
+  --space-11: 160px;
+
+  /* --- Radii — luxury = nearly sharp, hairline soft --- */
+  --r-none: 0;
+  --r-xs:   1px;
+  --r-sm:   2px;
+  --r-md:   4px;
+  --r-pill: 999px;     /* only for tags, not buttons */
+  --r-full: 50%;
+
+  /* --- Elevation — minimal, never plasticky --- */
+  --shadow-hair:  0 0 0 1px rgba(10,10,10,0.06);
+  --shadow-card:  0 1px 2px rgba(10,10,10,0.04), 0 8px 24px -12px rgba(10,10,10,0.12);
+  --shadow-lift:  0 2px 4px rgba(10,10,10,0.06), 0 20px 40px -16px rgba(10,10,10,0.18);
+  --shadow-modal: 0 24px 64px -16px rgba(10,10,10,0.32);
+  --shadow-inset: inset 0 0 0 1px rgba(10,10,10,0.08);
+
+  /* --- Motion --- */
+  --ease-out:   cubic-bezier(0.22, 0.61, 0.36, 1);   /* default */
+  --ease-soft:  cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-luxe:  cubic-bezier(0.65, 0, 0.35, 1);      /* slow, deliberate */
+  --dur-fast:   140ms;
+  --dur-base:   240ms;
+  --dur-slow:   420ms;
+  --dur-cinema: 720ms;
+
+  /* --- Typography roles --- */
+  --font-display: "Cormorant Garamond", "Bodoni Moda", "Times New Roman", serif;
+  --font-sans:    "Helvetica Neue Vc", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-cond:    "Helvetica Neue Cond Vc", "Helvetica Neue Condensed", "Helvetica Neue Vc", sans-serif;
+  --font-ext:     "Helvetica Neue Ext Vc", "Helvetica Neue Vc", sans-serif;
+  --font-ui:      "Inter Vc", "Inter", "Helvetica Neue Vc", sans-serif;
+  --font-num:     "Inter Vc", "Helvetica Neue Vc", sans-serif;
+
+  /* --- Tracking (luxury fashion convention: tight display, wide labels) --- */
+  --track-tight:  -0.02em;
+  --track-snug:   -0.01em;
+  --track-normal: 0;
+  --track-wide:   0.08em;
+  --track-x-wide: 0.16em;
+  --track-mega:   0.28em;
+}
+
+/* ---------- 3. Base type styles ---------- */
+
+html, body {
+  background: var(--bg-page);
+  color: var(--fg-1);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Display — editorial headlines, hero, section openers */
+.vc-display-1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(56px, 7.5vw, 120px);
+  line-height: 0.95;
+  letter-spacing: var(--track-tight);
+  text-wrap: balance;
+}
+.vc-display-2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(40px, 5vw, 80px);
+  line-height: 1.02;
+  letter-spacing: var(--track-tight);
+}
+.vc-display-3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(28px, 3.2vw, 48px);
+  line-height: 1.1;
+  letter-spacing: var(--track-snug);
+}
+
+/* Italic display — used for editorial pull-quotes & "the" "a" pairs */
+.vc-display-italic {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Headlines (h1–h4) — section titles inside pages */
+h1, .vc-h1 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 56px;
+  line-height: 1.05;
+  letter-spacing: var(--track-snug);
+  margin: 0;
+}
+h2, .vc-h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1.1;
+  letter-spacing: var(--track-snug);
+  margin: 0;
+}
+h3, .vc-h3 {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.3;
+  letter-spacing: var(--track-normal);
+  margin: 0;
+}
+h4, .vc-h4 {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.35;
+  letter-spacing: var(--track-normal);
+  margin: 0;
+}
+
+/* Eyebrow — small ALL-CAPS label above headlines */
+.vc-eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: var(--track-x-wide);
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+.vc-eyebrow-gold { color: var(--vc-gold); }
+
+/* Body */
+.vc-body-lg {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--fg-2);
+}
+p, .vc-body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--fg-2);
+}
+.vc-body-sm {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--fg-2);
+}
+.vc-caption {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--fg-3);
+  letter-spacing: 0.01em;
+}
+
+/* Labels — UI, nav, buttons */
+.vc-label {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: var(--track-wide);
+  text-transform: uppercase;
+}
+.vc-label-sm {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: var(--track-x-wide);
+  text-transform: uppercase;
+}
+
+/* Numerics — prices, qty, SKU. Tabular figures via Inter. */
+.vc-num {
+  font-family: var(--font-num);
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+.vc-price {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+
+/* Mono / SKU — never code-y. Helvetica with tabular figures suffices. */
+.vc-mono {
+  font-family: var(--font-ui);
+  font-feature-settings: "tnum" 1, "lnum" 1, "cv11" 1;
+  letter-spacing: 0.04em;
+}
+
+/* Link — luxe = no underline, hairline rule on hover */
+a.vc-link {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+  transition: opacity var(--dur-base) var(--ease-out);
+}
+a.vc-link:hover { opacity: 0.55; }
+
+/* Selection */
+::selection { background: var(--vc-ink); color: var(--vc-cream); }
