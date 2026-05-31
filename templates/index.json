@@ -1,0 +1,117 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-video",
+      "settings": {
+        "safe_loop": "1.6",
+        "eyebrow": "Maison Valcreno — Édition Privée",
+        "title": "<p>L'élégance, <em>mesurée<\/em> au battement du temps.<\/p>",
+        "subtitle": "Montres internationales · Sacs à main pour femme",
+        "cta_text": "Découvrir la collection",
+        "cta_link": "#collections"
+      }
+    },
+    "category-strip": {
+      "type": "category-strip",
+      "blocks": {
+        "cat-1": { "type": "category", "settings": { "label": "Montres", "active": true } },
+        "cat-2": { "type": "category", "settings": { "label": "Sacs à main", "active": false } },
+        "cat-3": { "type": "category", "settings": { "label": "Éditions limitées", "active": false } }
+      },
+      "block_order": ["cat-1", "cat-2", "cat-3"]
+    },
+    "marquee": {
+      "type": "marquee",
+      "blocks": {
+        "m1": { "type": "item", "settings": { "text": "Authenticité garantie" } },
+        "m2": { "type": "item", "settings": { "text": "Livraison assurée à l'international" } },
+        "m3": { "type": "item", "settings": { "text": "Service après-vente à vie" } },
+        "m4": { "type": "item", "settings": { "text": "Paiement sécurisé" } },
+        "m5": { "type": "item", "settings": { "text": "Retours sous 30 jours" } }
+      },
+      "block_order": ["m1", "m2", "m3", "m4", "m5"]
+    },
+    "collections": {
+      "type": "featured-collections",
+      "settings": {
+        "eyebrow": "Collections",
+        "title": "<p>Découvrez nos <em>collections<\/em><\/p>"
+      },
+      "blocks": {
+        "c1": { "type": "collection", "settings": { "heading": "Montres", "description": "Calibres et finitions d'exception, pensés pour durer." } },
+        "c2": { "type": "collection", "settings": { "heading": "Sacs à main", "description": "Cuirs italiens, ferrures laiton, lignes intemporelles." } },
+        "c3": { "type": "collection", "settings": { "heading": "Nouveautés", "description": "Les dernières pièces entrées à l'archive." } },
+        "c4": { "type": "collection", "settings": { "heading": "Éditions limitées", "description": "Tirages confidentiels, numérotés à la main." } }
+      },
+      "block_order": ["c1", "c2", "c3", "c4"]
+    },
+    "brand-video": {
+      "type": "brand-video",
+      "settings": {
+        "eyebrow": "L'atelier",
+        "title": "<p>Une <em>obsession<\/em> pour le détail.<\/p>",
+        "text": "Chaque pièce passe entre les mains d'un seul artisan, du premier ajustement au dernier polissage. Cuirs italiens cousus à la main, calibres ajustés au centième, ferrures champagne brossées. Un travail de patience, pour des objets qui se transmettent.",
+        "cta_text": "Découvrir le savoir-faire"
+      },
+      "blocks": {
+        "s1": { "type": "stat", "settings": { "label": "Fondée", "value": "2014, Genève" } },
+        "s2": { "type": "stat", "settings": { "label": "Atelier", "value": "Florence" } },
+        "s3": { "type": "stat", "settings": { "label": "Pièces / an", "value": "moins de 2 000" } },
+        "s4": { "type": "stat", "settings": { "label": "Garantie", "value": "à vie" } }
+      },
+      "block_order": ["s1", "s2", "s3", "s4"]
+    },
+    "featured-products": {
+      "type": "featured-products",
+      "settings": {
+        "eyebrow": "Sélection du moment",
+        "title": "<p>Pièces <em>signature<\/em><\/p>",
+        "products_count": 4,
+        "cta_text": "Voir toutes les pièces"
+      }
+    },
+    "trust": {
+      "type": "trust-strip",
+      "blocks": {
+        "t1": { "type": "item", "settings": { "icon": "shield", "label": "Authenticité", "sublabel": "garantie à vie" } },
+        "t2": { "type": "item", "settings": { "icon": "truck", "label": "Livraison assurée", "sublabel": "à l'international" } },
+        "t3": { "type": "item", "settings": { "icon": "clock", "label": "Service à vie", "sublabel": "atelier maison" } },
+        "t4": { "type": "item", "settings": { "icon": "card", "label": "Paiement sécurisé", "sublabel": "crypté SSL" } }
+      },
+      "block_order": ["t1", "t2", "t3", "t4"]
+    },
+    "reviews": {
+      "type": "reviews",
+      "settings": {
+        "eyebrow": "Maison · témoignages",
+        "title": "<p>Une confiance, <em>discrètement<\/em> partagée.<\/p>"
+      },
+      "blocks": {
+        "r1": { "type": "review", "settings": { "quote": "Une montre qui se porte comme une seconde peau — le poids parfait, le bracelet parfait.", "author": "Hélène M.", "location": "Paris" } },
+        "r2": { "type": "review", "settings": { "quote": "Le sac que je cherchais depuis des années. Les finitions sont irréprochables.", "author": "Camille B.", "location": "Lyon" } },
+        "r3": { "type": "review", "settings": { "quote": "Une expérience d'achat à la hauteur — l'écrin, l'attente, le service.", "author": "Sofia A.", "location": "Genève" } }
+      },
+      "block_order": ["r1", "r2", "r3"]
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "eyebrow": "Lettres de la maison",
+        "title": "<p>Avant tout le monde, <em>discrètement<\/em>.<\/p>",
+        "text": "Nouveautés, éditions privées et tirages au sort réservés aux abonnés. Jamais plus d'une fois par mois.",
+        "legal": "Nous respectons votre vie privée et protégeons vos données personnelles conformément à la législation en vigueur sur la protection des données."
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "category-strip",
+    "marquee",
+    "collections",
+    "brand-video",
+    "featured-products",
+    "trust",
+    "reviews",
+    "newsletter"
+  ]
+}

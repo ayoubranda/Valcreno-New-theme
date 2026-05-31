@@ -1,0 +1,78 @@
+<section class="reviews">
+  <div class="vc-container">
+    <div class="section-head reveal">
+      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2 class="title">{{ section.settings.title }}</h2>
+      <span class="rule"></span>
+    </div>
+    <div class="reviews__grid">
+      {% for block in section.blocks %}
+        <article class="review-card reveal" {{ block.shopify_attributes }}>
+          <div class="review-card__stars">
+            {% for i in (1..5) %}
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7 7 .8-5.2 4.6L18 22l-6-3.5L6 22l1.2-7.6L2 9.8 9 9z"/></svg>
+            {% endfor %}
+          </div>
+          <p class="review-card__quote">« {{ block.settings.quote }} »</p>
+          <p class="review-card__author"><span>{{ block.settings.author }}</span> · {{ block.settings.location }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Reviews",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Maison · témoignages"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title",
+      "default": "<p>Une confiance, <em>discrètement</em> partagée.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote",
+          "default": "Une montre qui se porte comme une seconde peau — le poids parfait, le bracelet parfait."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author",
+          "default": "Hélène M."
+        },
+        {
+          "type": "text",
+          "id": "location",
+          "label": "Location",
+          "default": "Paris"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reviews",
+      "blocks": [
+        { "type": "review", "settings": { "quote": "Une montre qui se porte comme une seconde peau — le poids parfait, le bracelet parfait.", "author": "Hélène M.", "location": "Paris" } },
+        { "type": "review", "settings": { "quote": "Le sac que je cherchais depuis des années. Les finitions sont irréprochables.", "author": "Camille B.", "location": "Lyon" } },
+        { "type": "review", "settings": { "quote": "Une expérience d'achat à la hauteur — l'écrin, l'attente, le service.", "author": "Sofia A.", "location": "Genève" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

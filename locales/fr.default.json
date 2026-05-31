@@ -1,0 +1,38 @@
+{
+  "general": {
+    "home": "Accueil",
+    "continue_shopping": "Continuer vos achats",
+    "404_title": "Page introuvable",
+    "404_text": "La page que vous recherchez n'existe plus ou a été déplacée.",
+    "previous": "Précédent",
+    "next": "Suivant"
+  },
+  "navigation": {
+    "categories": "Catégories"
+  },
+  "hero": {
+    "scroll": "Défiler"
+  },
+  "collections": {
+    "explore": "Explorer"
+  },
+  "products": {
+    "add_to_cart": "Ajouter au panier",
+    "sold_out": "Épuisé",
+    "new": "Nouveau"
+  },
+  "cart": {
+    "title": "Votre panier",
+    "empty": "Votre panier est vide.",
+    "quantity": "Quantité",
+    "subtotal": "Sous-total",
+    "checkout": "Passer la commande"
+  },
+  "footer": {
+    "trust_authenticity": "Authenticité garantie",
+    "trust_service": "Service atelier à vie",
+    "trust_shipping": "Livraison assurée à l'international",
+    "email_placeholder": "Votre adresse email",
+    "subscribe": "S'inscrire"
+  }
+}

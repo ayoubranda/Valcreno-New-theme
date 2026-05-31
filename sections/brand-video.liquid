@@ -1,0 +1,107 @@
+<section class="brand-video">
+  <div class="brand-video__inner">
+    <div class="brand-video__media">
+      {% if section.settings.video %}
+        <video autoplay muted loop playsinline preload="auto">
+          {% for source in section.settings.video.sources %}
+            <source src="{{ source.url }}" type="{{ source.mime_type }}">
+          {% endfor %}
+        </video>
+      {% else %}
+        <video src="{{ 'brand.mp4' | asset_url }}" autoplay muted loop playsinline preload="auto"></video>
+      {% endif %}
+    </div>
+    <div class="brand-video__copy reveal">
+      <span class="brand-video__eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2 class="brand-video__title">{{ section.settings.title }}</h2>
+      <p class="brand-video__text">{{ section.settings.text }}</p>
+      <dl class="brand-video__meta">
+        {% for block in section.blocks %}
+          <div {{ block.shopify_attributes }}>
+            <dt>{{ block.settings.label }}</dt>
+            <dd>{{ block.settings.value }}</dd>
+          </div>
+        {% endfor %}
+      </dl>
+      {% if section.settings.cta_text != blank %}
+        <a href="{{ section.settings.cta_link }}" class="vc-link-arrow" style="color: var(--vc-cream); border-color: var(--vc-cream);">
+          {{ section.settings.cta_text }}
+          <svg viewBox="0 0 28 8" fill="none" stroke="currentColor" stroke-width="1"><path d="M0 4h24M20 0l4 4-4 4"/></svg>
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Brand Video",
+  "settings": [
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "L'atelier"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title",
+      "default": "<p>Une <em>obsession</em> pour le détail.</p>"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Body text",
+      "default": "Chaque pièce passe entre les mains d'un seul artisan, du premier ajustement au dernier polissage. Cuirs italiens cousus à la main, calibres ajustés au centième, ferrures champagne brossées. Un travail de patience, pour des objets qui se transmettent."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button text",
+      "default": "Découvrir le savoir-faire"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Statistic",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Fondée"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "2014, Genève"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand Video",
+      "blocks": [
+        { "type": "stat", "settings": { "label": "Fondée", "value": "2014, Genève" } },
+        { "type": "stat", "settings": { "label": "Atelier", "value": "Florence" } },
+        { "type": "stat", "settings": { "label": "Pièces / an", "value": "moins de 2 000" } },
+        { "type": "stat", "settings": { "label": "Garantie", "value": "à vie" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,53 @@
+<nav class="cat-strip" aria-label="{{ 'navigation.categories' | t }}">
+  <div class="vc-container">
+    <div class="cat-strip__inner">
+      {% for block in section.blocks %}
+        <a href="{{ block.settings.link }}" class="cat-strip__link{% if block.settings.active %} is-active{% endif %}" {{ block.shopify_attributes }}>
+          {{ block.settings.label }}
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</nav>
+
+{% schema %}
+{
+  "name": "Category Strip",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Collection"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "checkbox",
+          "id": "active",
+          "label": "Active state",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Category Strip",
+      "blocks": [
+        { "type": "category", "settings": { "label": "Montres", "active": true } },
+        { "type": "category", "settings": { "label": "Sacs à main" } },
+        { "type": "category", "settings": { "label": "Éditions limitées" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

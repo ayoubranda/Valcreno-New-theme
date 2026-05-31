@@ -1,0 +1,52 @@
+<div class="header-spacer"></div>
+<section class="section">
+  <div class="vc-container" style="max-width: 960px;">
+    <div class="section-head">
+      <h1 class="title">{{ 'cart.title' | t }}</h1>
+      <span class="rule"></span>
+    </div>
+
+    {% if cart.item_count > 0 %}
+      <form action="/cart" method="post">
+        {% for item in cart.items %}
+          <div style="display: grid; grid-template-columns: 80px 1fr auto; gap: 20px; align-items: center; padding: 24px 0; border-bottom: 1px solid var(--border-hair);">
+            <a href="{{ item.url }}">
+              <img src="{{ item.image | image_url: width: 200 }}" alt="{{ item.title }}" style="width: 80px; height: 100px; object-fit: cover; border: 1px solid var(--border-hair);" />
+            </a>
+            <div>
+              <h3 class="prod-card__title" style="font-size: 18px;">
+                <a href="{{ item.url }}">{{ item.product.title }}</a>
+              </h3>
+              {% unless item.variant.title == 'Default Title' %}
+                <p class="prod-card__cat">{{ item.variant.title }}</p>
+              {% endunless %}
+              <p style="margin-top: 8px;">{{ 'cart.quantity' | t }}: {{ item.quantity }}</p>
+            </div>
+            <div style="text-align: right;">
+              <span class="prod-card__price" style="font-size: 16px;">{{ item.final_line_price | money }}</span>
+            </div>
+          </div>
+        {% endfor %}
+
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 32px 0;">
+          <span style="font-family: var(--font-sans); font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase;">{{ 'cart.subtotal' | t }}</span>
+          <span style="font-family: var(--font-num); font-size: 20px; font-feature-settings: 'tnum' 1;">{{ cart.total_price | money }}</span>
+        </div>
+
+        <button type="submit" name="checkout" class="vc-btn is-block">{{ 'cart.checkout' | t }}</button>
+      </form>
+    {% else %}
+      <p style="text-align: center; margin-top: 40px;">{{ 'cart.empty' | t }}</p>
+      <div style="text-align: center; margin-top: 24px;">
+        <a href="/" class="vc-btn">{{ 'general.continue_shopping' | t }}</a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Cart Page",
+  "settings": []
+}
+{% endschema %}

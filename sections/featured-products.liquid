@@ -1,0 +1,115 @@
+<section class="section featured">
+  <div class="vc-container">
+    <div class="section-head reveal">
+      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2 class="title">{{ section.settings.title }}</h2>
+      <span class="rule"></span>
+    </div>
+
+    <div class="product-grid">
+      {% assign coll = collections[section.settings.collection] %}
+      {% assign products_to_show = section.settings.products_count | default: 4 %}
+      {% for product in coll.products limit: products_to_show %}
+        <a class="prod-card reveal" href="{{ product.url }}">
+          <div class="prod-card__media">
+            {% if product.compare_at_price > product.price %}
+              {% assign discount = product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price %}
+              <span class="prod-card__badge is-sale">−{{ discount }}%</span>
+            {% elsif product.tags contains 'new' %}
+              <span class="prod-card__badge is-new">{{ 'products.new' | t }}</span>
+            {% endif %}
+            {% if product.featured_image %}
+              <img
+                src="{{ product.featured_image | image_url: width: 900 }}"
+                alt="{{ product.featured_image.alt | default: product.title }}"
+                loading="lazy"
+                width="900"
+                height="1125"
+              />
+            {% endif %}
+            {% if product.images[1] %}
+              <img
+                src="{{ product.images[1] | image_url: width: 900 }}"
+                alt=""
+                loading="lazy"
+                width="900"
+                height="1125"
+              />
+            {% endif %}
+          </div>
+          <div class="prod-card__body">
+            <p class="prod-card__cat">{{ product.type }}</p>
+            <h3 class="prod-card__title">{{ product.title }}</h3>
+            <div class="prod-card__price">
+              {% if product.compare_at_price > product.price %}
+                <span class="sale">{{ product.price | money }}</span>
+                <span class="was">{{ product.compare_at_price | money }}</span>
+              {% else %}
+                <span>{{ product.price | money }}</span>
+              {% endif %}
+            </div>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+
+    {% if section.settings.cta_text != blank %}
+      <div style="display:flex; justify-content:center; margin-top: 64px;" class="reveal">
+        <a href="{{ section.settings.cta_link | default: coll.url }}" class="vc-link-arrow">
+          {{ section.settings.cta_text }}
+          <svg viewBox="0 0 28 8" fill="none" stroke="currentColor" stroke-width="1"><path d="M0 4h24M20 0l4 4-4 4"/></svg>
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Sélection du moment"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title",
+      "default": "<p>Pièces <em>signature</em></p>"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_count",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 4,
+      "label": "Products to show"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "View all text",
+      "default": "Voir toutes les pièces"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "View all link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Products"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,53 @@
+<section class="newsletter">
+  <div class="newsletter__inner reveal">
+    <span class="newsletter__eyebrow">{{ section.settings.eyebrow }}</span>
+    <h2 class="newsletter__title">{{ section.settings.title }}</h2>
+    <p class="newsletter__sub">{{ section.settings.text }}</p>
+    {% form 'customer', class: 'newsletter__form' %}
+      <input type="hidden" name="contact[tags]" value="newsletter" />
+      <input type="email" name="contact[email]" required placeholder="{{ 'footer.email_placeholder' | t }}" aria-label="{{ 'footer.email_placeholder' | t }}" />
+      <button type="submit" data-label="{{ 'footer.subscribe' | t }}">
+        {{ 'footer.subscribe' | t }}
+        <svg width="28" height="8" viewBox="0 0 28 8" fill="none" stroke="currentColor" stroke-width="1"><path d="M0 4h24M20 0l4 4-4 4"/></svg>
+      </button>
+    {% endform %}
+    <p class="newsletter__legal">{{ section.settings.legal }}</p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Lettres de la maison"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title",
+      "default": "<p>Avant tout le monde, <em>discrètement</em>.</p>"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Description",
+      "default": "Nouveautés, éditions privées et tirages au sort réservés aux abonnés. Jamais plus d'une fois par mois."
+    },
+    {
+      "type": "textarea",
+      "id": "legal",
+      "label": "Privacy notice",
+      "default": "Nous respectons votre vie privée et protégeons vos données personnelles conformément à la législation en vigueur sur la protection des données."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter"
+    }
+  ]
+}
+{% endschema %}

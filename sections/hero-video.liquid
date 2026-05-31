@@ -1,0 +1,94 @@
+<section class="hero" id="hero" data-hero-dark>
+  {% if section.settings.video %}
+    <video
+      class="hero__video"
+      autoplay muted loop playsinline preload="auto"
+      data-safe-loop="{{ section.settings.safe_loop }}"
+      poster="">
+      {% for source in section.settings.video.sources %}
+        <source src="{{ source.url }}" type="{{ source.mime_type }}">
+      {% endfor %}
+    </video>
+  {% else %}
+    <video
+      class="hero__video"
+      src="{{ 'hero.mp4' | asset_url }}"
+      autoplay muted loop playsinline preload="auto"
+      data-safe-loop="{{ section.settings.safe_loop }}"
+      poster="">
+    </video>
+  {% endif %}
+  <div class="hero__overlay"></div>
+  <div class="hero__grain"></div>
+
+  <div class="hero__content" data-hero-content>
+    <span class="hero__eyebrow">{{ section.settings.eyebrow }}</span>
+    <h1 class="hero__title">{{ section.settings.title }}</h1>
+    <p class="hero__sub">{{ section.settings.subtitle }}</p>
+    {% if section.settings.cta_text != blank %}
+      <a href="{{ section.settings.cta_link }}" class="vc-btn is-light hero__cta">
+        {{ section.settings.cta_text }}
+        <svg width="28" height="8" viewBox="0 0 28 8" fill="none" stroke="currentColor" stroke-width="1">
+          <path d="M0 4h24M20 0l4 4-4 4"/>
+        </svg>
+      </a>
+    {% endif %}
+  </div>
+
+  <div class="hero__scroll" aria-hidden="true">{{ 'hero.scroll' | t }}</div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Video",
+  "settings": [
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Hero video"
+    },
+    {
+      "type": "text",
+      "id": "safe_loop",
+      "label": "Loop trim (seconds from end)",
+      "default": "1.6",
+      "info": "Restarts video this many seconds before the end"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "Maison Valcreno — Édition Privée"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title",
+      "default": "<p>L'élégance, <em>mesurée</em> au battement du temps.</p>"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Montres internationales · Sacs à main pour femme"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button text",
+      "default": "Découvrir la collection"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button link",
+      "default": "#collections"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Video"
+    }
+  ]
+}
+{% endschema %}

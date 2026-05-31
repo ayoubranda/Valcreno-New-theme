@@ -1,0 +1,38 @@
+<header class="site-header" id="siteHeader">
+  <a href="/" aria-label="{{ shop.name }} — {{ 'general.home' | t }}">
+    {% if section.settings.logo %}
+      <img
+        src="{{ section.settings.logo | image_url: width: 200 }}"
+        alt="{{ shop.name }}"
+        class="logo"
+        width="{{ section.settings.logo_width }}"
+        height="{{ section.settings.logo_width | divided_by: section.settings.logo.aspect_ratio }}"
+      />
+    {% else %}
+      <img src="{{ 'valcreno-wordmark.png' | asset_url }}" alt="{{ shop.name }}" class="logo" />
+    {% endif %}
+  </a>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 60,
+      "max": 300,
+      "step": 10,
+      "default": 130,
+      "unit": "px",
+      "label": "Logo width"
+    }
+  ]
+}
+{% endschema %}

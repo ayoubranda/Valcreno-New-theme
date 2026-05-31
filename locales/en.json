@@ -1,0 +1,38 @@
+{
+  "general": {
+    "home": "Home",
+    "continue_shopping": "Continue shopping",
+    "404_title": "Page not found",
+    "404_text": "The page you're looking for no longer exists or has been moved.",
+    "previous": "Previous",
+    "next": "Next"
+  },
+  "navigation": {
+    "categories": "Categories"
+  },
+  "hero": {
+    "scroll": "Scroll"
+  },
+  "collections": {
+    "explore": "Explore"
+  },
+  "products": {
+    "add_to_cart": "Add to cart",
+    "sold_out": "Sold out",
+    "new": "New"
+  },
+  "cart": {
+    "title": "Your cart",
+    "empty": "Your cart is empty.",
+    "quantity": "Quantity",
+    "subtotal": "Subtotal",
+    "checkout": "Checkout"
+  },
+  "footer": {
+    "trust_authenticity": "Authenticity guaranteed",
+    "trust_service": "Lifetime workshop service",
+    "trust_shipping": "Insured international shipping",
+    "email_placeholder": "Your email address",
+    "subscribe": "Subscribe"
+  }
+}
